@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects - Darshan's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-color: rgb(0, 0, 33);
+      --text-color: white;
+      --box-color: rgb(18, 18, 62);
+      --accent-color: rgb(153, 153, 226);
+      --link-color: #61dafb;
+    }
+
+    .light-mode {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --box-color: #f0f0f0;
+      --accent-color: rgb(117, 107, 228);
+      --link-color: #1e88e5;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: var(--box-color);
+    }
+
+    nav .left {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav .right ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+    }
+
+    nav ul li a:hover {
+      color: var(--accent-color);
+    }
+
+    .mode-toggle {
+      padding: 6px 12px;
+      border: 1px solid var(--text-color);
+      background: none;
+      color: var(--text-color);
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-left: 20px;
+    }
+
+    .container {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .container h1 {
+      color: var(--accent-color);
+    }
+
+    .project-card {
+      background-color: var(--box-color);
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 700px;
+      text-align: left;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+
+    .project-card h2 {
+      margin-bottom: 10px;
+      color: var(--accent-color);
+    }
+
+    .project-card p {
+      font-size: 0.95rem;
+      color: lightgray;
+    }
+
+    .light-mode .project-card p {
+      color: #333;
+    }
+
+    .project-card a {
+      display: inline-block;
+      margin-top: 10px;
+      text-decoration: none;
+      color: var(--link-color);
+      font-weight: bold;
+    }
+
+    .project-card a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .mode-toggle {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="left">Darshan's Portfolio</div>
+    <div class="right">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contactme.html">Contact</a></li>
+      </ul>
+    </div>
+    <button class="mode-toggle" onclick="toggleMode()">🌙 Dark/Light Mode</button>
+  </nav>
+
+  <div class="container">
+    <h1>My Projects</h1>
+
+    <div class="project-card">
+      <h2>Spotify Clone</h2>
+      <p>A music streaming web app UI similar to Spotify, built using HTML, CSS & JavaScript.</p>
+      <a href="https://github.com/yourusername/spotify-clone" target="_blank">View on GitHub</a>
+    </div>
+
+    <div class="project-card">
+      <h2>Flipkart Clone</h2>
+      <p>An e-commerce clone of Flipkart with dynamic product listings using Fakestore API.</p>
+      <a href="https://github.com/yourusername/flipkart-clone" target="_blank">View on GitHub</a>
+    </div>
+
+    <div class="project-card">
+      <h2>Spin the Wheel Game</h2>
+      <p>Interactive wheel game with prizes, animations, sound effects and win logic.</p>
+      <a href="https://github.com/yourusername/spin-the-wheel" target="_blank">View on GitHub</a>
+    </div>
+  </div>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("light-mode");
+    }
+  </script>
+
+</body>
+</html>

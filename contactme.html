@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Me - Darshan's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-color: rgb(0, 0, 33);
+      --text-color: white;
+      --box-color: rgb(18, 18, 62);
+      --accent-color: rgb(153, 153, 226);
+    }
+
+    .light-mode {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --box-color: #f0f0f0;
+      --accent-color: rgb(117, 107, 228);
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: var(--box-color);
+    }
+
+    nav .left {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav .right ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+    }
+
+    nav ul li a:hover {
+      color: var(--accent-color);
+    }
+
+    .mode-toggle {
+      padding: 6px 12px;
+      border: 1px solid var(--text-color);
+      background: none;
+      color: var(--text-color);
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-left: 20px;
+    }
+
+    .container {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: var(--accent-color);
+      font-size: 2.5rem;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 40px auto;
+      background-color: var(--box-color);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      background-color: white;
+      color: black;
+    }
+
+    .light-mode input,
+    .light-mode textarea {
+      background-color: #f9f9f9;
+      color: #000;
+    }
+
+    input[type="submit"] {
+      background-color: var(--accent-color);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      opacity: 0.9;
+    }
+
+    .social-links {
+      margin-top: 40px;
+    }
+
+    .social-links a {
+      color: var(--text-color);
+      margin: 0 15px;
+      font-size: 1.8rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: var(--accent-color);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      background-color: #0e0e1a;
+      color: gray;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .mode-toggle {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="left">Darshan's Portfolio</div>
+    <div class="right">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <button class="mode-toggle" onclick="toggleMode()">🌙 Dark/Light Mode</button>
+  </nav>
+
+  <div class="container">
+    <h1>Contact Me</h1>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <input type="submit" value="Send Message" />
+    </form>
+
+    <div class="social-links">
+      <a href="https://www.instagram.com/darshannn.0801/?igsh=c3BmMHdpY2Q4M2Ez#" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/public-profile/settings" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://youtu.be/JLh8GD0d_QYe" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="mailto:your_email@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Darshan's Portfolio | All Rights Reserved
+  </footer>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("light-mode");
+    }
+  </script>
+</body>
+</html>

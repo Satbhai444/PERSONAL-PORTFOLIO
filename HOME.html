@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Darshan's Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-color: rgb(0, 0, 33);
+      --text-color: white;
+      --nav-bg: rgb(18, 18, 62);
+      --button-bg: #1e2167;
+      --border-color: white;
+      --footer-bg: #0e0e1a;
+      --footer-text: gray;
+      --link-hover: rgb(153, 153, 226);
+      --desc-color: gray;
+      --highlight: rgb(117, 107, 228);
+    }
+    body.light-mode {
+      --bg-color: #ffffff;
+      --text-color: #1a1a1a;
+      --nav-bg: #f5f5f5;
+      --button-bg: #e0e0e0;
+      --border-color: #333;
+      --footer-bg: #eeeeee;
+      --footer-text: #555;
+      --link-hover: #4b4bff;
+      --desc-color: #444;
+      --highlight: #4b4bff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: "Poppins", sans-serif;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    nav {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 80px;
+      background-color: var(--nav-bg);
+      transition: background-color 0.3s;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+    }
+    nav ul li {
+      list-style: none;
+      margin: 0 23px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: var(--text-color);
+      position: relative;
+    }
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -3px;
+      left: 0;
+      background-color: var(--highlight);
+      transition: width 0.3s;
+    }
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+    .theme-toggle {
+      font-size: 1.3rem;
+      background: none;
+      border: none;
+      color: var(--text-color);
+      cursor: pointer;
+      margin-left: 15px;
+      transition: color 0.3s;
+    }
+    main hr {
+      border: 0;
+      background: #9c97f1;
+      height: 1.2px;
+      margin: 40px 84px;
+    }
+    .left { font-size: 1.5rem; color: var(--text-color); }
+    .firstSection {
+      display: flex;
+      justify-content: space-around;
+      margin: 130px 0;
+    }
+    .firstSection > div { width: 30%; }
+    .leftSection { font-size: 3rem; }
+    .leftSection .buttons { padding: 50px 0; }
+    .leftSection .btn {
+      padding: 12px;
+      background: var(--button-bg);
+      color: var(--text-color);
+      border: 2px solid var(--border-color);
+      border-radius: 6px;
+      font-size: 20px;
+      cursor: pointer;
+      margin-right: 10px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .leftSection .btn:hover {
+      animation: pulse 1s;
+      box-shadow: 0 0 10px var(--highlight);
+    }
+    .rightSection img {
+      width: 80%;
+      margin: 50px 0;
+      animation: float 3s ease-in-out infinite;
+    }
+    .purple { color: var(--highlight); }
+    .text-gray { color: var(--desc-color); }
+    #element { color: var(--highlight); }
+    .secondSection {
+      width: 80vw;
+      margin: auto;
+      height: 80vh;
+    }
+    .secondSection h1 { font-size: 1.9rem; }
+    .secondSection .box {
+      background: white;
+      width: 77vw;
+      height: 2px;
+      margin: 56px 0;
+      display: flex;
+    }
+    .secondSection .vertical {
+      height: 93px;
+      width: 1px;
+      background-color: var(--text-color);
+      margin: 0 120px;
+    }
+    .image-top {
+      width: 50px;
+      position: relative;
+      top: -50px;
+      left: -18px;
+      transition: transform 0.5s ease;
+    }
+    .image-top:hover {
+      transform: rotate(360deg) scale(1.2);
+    }
+    .vertical-title {
+      position: relative;
+      top: 42px;
+      left: 24px;
+      font-size: 30px;
+      color: var(--text-color);
+    }
+    .vertical-desc {
+      position: relative;
+      top: 48px;
+      left: 23px;
+      color: var(--desc-color);
+      width: 150px;
+      font-size: 9px;
+    }
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    footer { background-color: var(--footer-bg); transition: background-color 0.3s; }
+    .footer {
+      display: flex;
+      padding: 23px 122px;
+      justify-content: space-evenly;
+    }
+    .footer ul { list-style: none; }
+    .footer > div { width: 223px; }
+    .footer-rights {
+      text-align: center;
+      color: var(--footer-text);
+      padding: 12px 0;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(117, 107, 228, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(117, 107, 228, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(117, 107, 228, 0); }
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="left">Darshan's Portfolio</div>
+      <button id="theme-toggle" class="theme-toggle">🌙</button>
+      <div class="right">
+        <ul>
+          <li><a href="HOME.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contactme.html">Contact Me</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="firstSection fade-in-section">
+      <div class="leftSection">
+        Hi, My Name is <span class="purple">Darshan</span>
+        <div>and I am a Passionate</div>
+        <span id="element"></span>
+        <div class="buttons">
+          <a href="Darshan_Fresher_Resume.pdf" download><button class="btn">Download Resume</button></a>
+          <a href="https://github.com/Satbhai444" target="_blank"><button class="btn">Github</button></a>
+        </div>
+      </div>
+      <div class="rightSection">
+        <img src="bg.png" alt="" />
+      </div>
+    </section>
+    <hr />
+    <section class="secondSection fade-in-section">
+      <span class="text-gray">What I have done so far</span>
+      <h1>Work Experience</h1>
+      <div class="box">
+        <div class="vertical">
+          <img class="image-top" src="html.png" alt="" />
+          <div class="vertical-title">HTML Developer (2010-2012)</div>
+          <div class="vertical-desc">Worked on basic front-end development..</div>
+        </div>
+        <div class="vertical">
+          <img class="image-top" src="js.png" alt="" />
+          <div class="vertical-title">Node.Js Developer (2012-2014)</div>
+          <div class="vertical-desc">Built scalable backend services.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer">
+      <div class="footer-first">
+        <h3>Darshan's Developer Portfolio</h3>
+      </div>
+      <div class="footer-Second">
+        <ul><li>Home</li><li>About</li><li>Contact</li><li>Services</li></ul>
+      </div>
+      <div class="footer-third">
+        <ul><li>Home</li><li>About</li><li>Contact</li><li>Services</li></ul>
+      </div>
+      <div class="footer-Fourth">
+        <ul><li>Home</li><li>About</li><li>Contact</li><li>Services</li></ul>
+      </div>
+    </div>
+    <div class="footer-rights">
+      Copyright &#9400; darshan'sportfolio.com | All Rights Reserved
+    </div>
+  </footer>
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script>
+    var typed = new Typed("#element", {
+      strings: ["Web Developer", "Graphic Designer", "Web Designer", "Video Editor"],
+      typeSpeed: 50,
+    });
+
+    const toggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme === 'light') {
+      body.classList.add('light-mode');
+      toggleBtn.textContent = '☀️';
+    }
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('light-mode');
+      const isLight = body.classList.contains('light-mode');
+      toggleBtn.textContent = isLight ? '☀️' : '🌙';
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+
+    // Scroll animation for fade-in sections
+    const fadeSections = document.querySelectorAll('.fade-in-section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    });
+    fadeSections.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>
